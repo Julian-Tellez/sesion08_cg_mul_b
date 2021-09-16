@@ -9,33 +9,33 @@
 	</style>
 </head>
 <body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>	//Librería de three.js
 <script>
-	var WIDTH = window.innerWidth;
-	var HEIGHT = window.innerHeight;
+	var WIDTH = window.innerWidth;	//Ancho de la ventana
+	var HEIGHT = window.innerHeight;  //Altura de la ventana
 
 	var renderer = new THREE.WebGLRenderer({antialias:true});
 	renderer.setSize(WIDTH, HEIGHT);
 	renderer.setClearColor(0xDDDDDD, 1);
-	document.body.appendChild(renderer.domElement);
+	document.body.appendChild(renderer.domElement);	//Renderizar la figura para que sea visible 
 
-	var scene = new THREE.Scene();
+	var scene = new THREE.Scene();	//Creación de la escena en donde estará la figura 
 
-	var camera = new THREE.PerspectiveCamera(70, WIDTH/HEIGHT);
-	camera.position.z = 50;
-	scene.add(camera);
+	var camera = new THREE.PerspectiveCamera(70, WIDTH/HEIGHT);	//Tamaño de la cámara
+	camera.position.z = 50;	//Posición de la cámara 
+	scene.add(camera);	//Añadiendo la cámara a la escena
 
-	var boxGeometry = new THREE.BoxGeometry(10, 10, 10);
-	var basicMaterial = new THREE.MeshBasicMaterial({color: 0x0095DD});
-	var cube = new THREE.Mesh(boxGeometry, basicMaterial);
-	scene.add(cube);
-	cube.rotation.set(0.4, 0.2, 0);
+	var boxGeometry = new THREE.BoxGeometry(10, 10, 10); //Dimesiones de la figura
+	var basicMaterial = new THREE.MeshBasicMaterial({color: 0x0095DD});	//Material/color de la figura
+	var cube = new THREE.Mesh(boxGeometry, basicMaterial);	//Creando figura 'cube' con las dimensiones y el material/color antes definidos
+	scene.add(cube);	//añadir el 'cube' a la escena
+	cube.rotation.set(0.4, 0.2, 0);	//Definir la rotación que tendrá el cubo con respecto a la vista de la cámara
 
-	function render() {
+	function render() {	//Función para renderizar la cámara y la escena 
 		requestAnimationFrame(render);
 		renderer.render(scene, camera);
 	}
-	render();
+	render();	//Llamando a la función 'render'
 </script>
 </body>
 </html>
